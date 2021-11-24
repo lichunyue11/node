@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+</head>
+<body>
+    <div id="save">保存</div>
+    <div id="inquire">查询</div>
+    <div id="del">删除</div>
+    <div id="updata">更新</div>
+</body>
+<script>
+    let url = 'http://127.0.0.1:3000'
+    console.log(document.getElementById("save"),"id")
+    let saveData = document.getElementById("save")
+    let inquire = document.getElementById("inquire")
+    let del = document.getElementById("del")
+    let updata = document.getElementById("updata")
+
+
+    saveData.addEventListener("click",()=>{
+        $.post(`${url}/mysql/saveData`,{name:"post",age:1833,sex:"??"},function(data,status){
+            console.log(3333)
+            console.log(data,"存数据")
+        });  
+    })
+   
+
+    inquire.addEventListener("click",()=>{
+        console.log(3333)
+        $.get(`${url}/mysql/getData`,function(data,status){
+            console.log(3333)
+            console.log(data,"存数据")
+        });  
+    })
+  
+
+    del.addEventListener("click",()=>{
+        console.log(3333)
+        $.get(`${url}/mysql/delData`,{id:10},function(data,status){
+            console.log(3333)
+            console.log(data,"删除")
+        });  
+    })
+
+    updata.addEventListener("click",()=>{
+        console.log(3333)
+        $.get(`${url}/mysql/setData`,{age:2000,id:30},function(data,status){
+            console.log(3333)
+            console.log(data,"删除")
+        });  
+    })
+</script>
+</html>
