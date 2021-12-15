@@ -9,6 +9,7 @@
 </head>
 </head>
 <body>
+    <div id="create">创建</div>
     <div id="save">保存</div>
     <div id="inquire">查询</div>
     <div id="del">删除</div>
@@ -17,11 +18,17 @@
 <script>
     let url = 'http://127.0.0.1:3000'
     console.log(document.getElementById("save"),"id")
+    let create = document.getElementById("create")
     let saveData = document.getElementById("save")
     let inquire = document.getElementById("inquire")
     let del = document.getElementById("del")
     let updata = document.getElementById("updata")
 
+    create.addEventListener("click",()=>{
+        $.get(`${url}/mysql/createSurface`,function(data,status){
+            console.log(data,"存数据22")
+        });  
+    })
 
     saveData.addEventListener("click",()=>{
         $.post(`${url}/mysql/saveData`,{name:"post",age:1833,sex:"??"},function(data,status){
